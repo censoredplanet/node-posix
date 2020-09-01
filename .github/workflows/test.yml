@@ -20,6 +20,8 @@ jobs:
         - '13'
         - '14'
         - 'default'
+        exclude:
+        - { os: macOS-latest, node: '6' } # fails, 'utility' header is missing
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
