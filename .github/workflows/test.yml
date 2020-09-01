@@ -10,7 +10,7 @@ jobs:
       matrix:
         os:
         - ubuntu-latest
-        #- macOS-latest
+        - macOS-latest
         # Supported: https://github.com/actions/node-versions/blob/main/versions-manifest.json
         node:
         - '6'

@@ -23,6 +23,6 @@
     "scripts" : {
         "test" : "make test"
     },
-    "os": [ "linux" ],
+    "os": [ "linux", "darwin" ],
     "engines" : { "node": ">= 0.10.0" }
 }
