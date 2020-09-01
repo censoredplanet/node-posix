@@ -1,0 +1,34 @@
+---
+name: Test
+on: [push]
+
+jobs:
+  bulild:
+    strategy:
+      # Platform-specific failure is not a reason to stop build for another platform.
+      fail-fast: false
+      matrix:
+        os:
+        - ubuntu-latest
+        #- macOS-latest
+        # Supported: https://github.com/actions/node-versions/blob/main/versions-manifest.json
+        node:
+        - '6'
+        - '8'
+        - '10'
+        - '12'
+        - '13'
+        - '14'
+        - 'default'
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: ${{ matrix.node }}
+      if: matrix.node != 'default'
+    - name: Build
+      run: npm install
+    - name: Test
+      run: make travis
+...
